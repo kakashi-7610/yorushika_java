@@ -1,0 +1,43 @@
+<header class="contents-header">
+  <div class="header-inner">
+  	<!-- 
+    <a class="header-logo" href="{% url 'yorushika:index' %}">
+      <img class="logo" src="{% static 'yorushika/img/header/yorushika_logo.png' %}" alt="yorushika">
+    </a>
+    <button class="toggle-menu"></button>
+    <div class="header-menu">
+      <nav class="site-menu">
+        <ul class="nav-menu">
+          <li class="nav-list">
+            <a class="link" href="{% url 'yorushika:overview' %}">OVERVIEW</a>
+          </li>
+          <li class="nav-list">
+            <a class="link" href="{% url 'yorushika:recommend' %}">RECOMMEND</a>
+          </li>
+          <li class="nav-list">
+            <a class="link" href="{% url 'yorushika:album' %}">ALBUM</a>
+          </li>
+          <li class="nav-list">
+            <a class="link" href="{% url 'yorushika:sanctuary' %}">SANCTUARY</a>
+          </li>
+          {% if request.user.is_authenticated %}
+            <li class="nav-list">
+              <a class="link" href="{% url 'yorushika:mypage' request.user.id %}">MYPAGE</a>
+            </li>
+            <li class="nav-list">
+              <a class="link" href="{% url 'yorushika:logout' %}">SIGNOUT</a>
+            </li>
+          {% else %}
+            <li class="nav-list">
+              <a class="link" href="{% url 'yorushika:signup' %}">SIGNUP</a>
+            </li>
+            <li class="nav-list">
+              <a class="link" href="{% url 'yorushika:login' %}">SIGNIN</a>
+            </li>
+          {% endif %}
+        </ul>
+      </nav>
+    </div>
+  	 -->
+  </div>
+</header>

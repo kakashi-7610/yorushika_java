@@ -16,7 +16,7 @@
 <body class="contents-wrapper">
   <jsp:include page="header.jsp" />
   <main class="contents-body">
-    <jsp:include page="baseIndex.jsp" />
+    <jsp:include page="baseSanctuary.jsp" />
   </main>
   <jsp:include page="footer.jsp" />
 </body>
