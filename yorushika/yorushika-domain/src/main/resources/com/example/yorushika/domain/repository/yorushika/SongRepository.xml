@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.yorushika.domain.repository.yorushika.SongRepository">
+
+    <!-- (2) -->
+    <resultMap id="songResultMap" type="Song">
+        <id property="id" column="id" />
+        <result property="title" column="title" />
+        <result property="text" column="text" />
+        <result property="url" column="url" />
+        <result property="created" column="created_at" />
+        <result property="albumId" column="album_id" />
+        <result property="songOrder" column="song_order" />
+    </resultMap>
+
+    <!-- (3) -->
+    <select id="findById" parameterType="String" resultMap="songResultMap">
+    <![CDATA[
+        SELECT
+            id,
+            title,
+            text,
+            url,
+            created_at,
+            album_id,
+            song_order
+        FROM
+            yorushika_song
+        WHERE
+            id = #{id}
+    ]]>
+    </select>
+
+    <!-- (4) -->
+    <select id="findAll" resultMap="songResultMap">
+    <![CDATA[
+        SELECT
+            id,
+            title,
+            text,
+            url,
+            created_at,
+            album_id,
+            song_order
+        FROM
+            yorushika_song
+    ]]>
+    </select>
+
+    <!-- (5) -->
+    <insert id="create" parameterType="Song">
+    <![CDATA[
+        INSERT INTO yorushika_song
+        (
+            id,
+            title,
+            text,
+            url,
+            created_at,
+            album_id,
+            song_order
+        )
+        VALUES
+        (
+            #{id},
+            #{title},
+            #{text},
+            #{url},
+            #{created},
+            #{albumId},
+            #{songOrder}
+        )
+    ]]>
+    </insert>
+
+    <!-- (6) -->
+    <update id="update" parameterType="Song">
+    <![CDATA[
+        UPDATE yorushika_song
+        SET
+            title = #{title},
+            text = #{text},
+            url = #{url},
+            created_at = #{created},
+            album_id = #{albumId},
+            song_order = #{songOrder}
+        WHERE
+            id = #{id}
+    ]]>
+    </update>
+
+    <!-- (7) -->
+    <delete id="delete" parameterType="Song">
+    <![CDATA[
+        DELETE FROM
+            yorushika_song
+        WHERE
+            id = #{id}
+    ]]>
+    </delete>
+
+</mapper>

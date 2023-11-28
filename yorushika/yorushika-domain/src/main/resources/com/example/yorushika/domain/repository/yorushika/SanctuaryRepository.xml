@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.yorushika.domain.repository.yorushika.SanctuaryRepository">
+
+    <!-- (2) -->
+    <resultMap id="sanctuaryResultMap" type="Sanctuary">
+        <id property="id" column="id" />
+        <result property="sanctuary" column="sanctuary" />
+        <result property="songId" column="song_id" />
+        <result property="text" column="text" />
+        <result property="tag" column="tag" />
+        <result property="created" column="created_at" />
+        <result property="image" column="image" />
+    </resultMap>
+
+    <!-- (3) -->
+    <select id="findById" parameterType="String" resultMap="sanctuaryResultMap">
+    <![CDATA[
+        SELECT
+            id,
+            sanctuary,
+            song_id,
+            text,
+            tag,
+            created_at,
+            image
+        FROM
+            yorushika_sanctuary
+        WHERE
+            id = #{id}
+    ]]>
+    </select>
+
+    <!-- (4) -->
+    <select id="findAll" resultMap="sanctuaryResultMap">
+    <![CDATA[
+        SELECT
+            id,
+            sanctuary,
+            song_id,
+            text,
+            tag,
+            created_at,
+            image
+        FROM
+            yorushika_sanctuary
+    ]]>
+    </select>
+
+    <!-- (5) -->
+    <insert id="create" parameterType="Sanctuary">
+    <![CDATA[
+        INSERT INTO yorushika_sanctuary
+        (
+            id,
+            sanctuary,
+            song_id,
+            text,
+            tag,
+            created_at,
+            image
+        )
+        VALUES
+        (
+            #{id},
+            #{sanctuary},
+            #{songId},
+            #{text},
+            #{tag},
+            #{created},
+            #{image}
+        )
+    ]]>
+    </insert>
+
+    <!-- (6) -->
+    <update id="update" parameterType="Sanctuary">
+    <![CDATA[
+        UPDATE yorushika_sanctuary
+        SET
+            sanctuary = #{sanctuary},
+            song_id = #{songId},
+            text = #{text},
+            tag = #{tag},
+            created = #{created},
+            image = #{image}
+        WHERE
+            id = #{id}
+    ]]>
+    </update>
+
+    <!-- (7) -->
+    <delete id="delete" parameterType="Sanctuary">
+    <![CDATA[
+        DELETE FROM
+            yorushika_sanctuary
+        WHERE
+            id = #{id}
+    ]]>
+    </delete>
+
+</mapper>
